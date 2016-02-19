@@ -23,7 +23,7 @@ export function isValidABN(abn) {
 
 }
 
-// Taken from http://forums.whirlpool.net.au/archive/984775
+// Taken from Worldspawn's post on http://forums.whirlpool.net.au/archive/984775
 export function isValidACN(acn) {
     // Strip off white space
     if (typeof acn === 'string') {
