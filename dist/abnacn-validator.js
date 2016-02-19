@@ -31,21 +31,24 @@ function isValidABN(abn) {
 }
 
 // Taken from http://forums.whirlpool.net.au/archive/984775
-function isValidACN(value) {
-    if (!value.length) return true;
+function isValidACN(acn) {
+    // Strip off white space
+    if (typeof acn === 'string') {
+        acn = acn.replace(/\s/g, '').replace(/-/g, '');
+    }
 
-    if (value.length != 9 || isNaN(parseInt(value))) return false;
+    if (acn.length != 9 || isNaN(parseInt(acn))) return false;
 
     var weighting = [8, 7, 6, 5, 4, 3, 2, 1];
     var tally = 0;
     for (var i = 0; i < weighting.length; i++) {
-        tally += parseInt(value.charAt(i)) * weighting[i];
+        tally += parseInt(acn.charAt(i)) * weighting[i];
     }
 
     var check = 10 - tally % 10;
     check = check == 10 ? 0 : check;
 
-    return check == value[8];
+    return check == acn[8];
 }
 
 function isValidABNorACN(value) {

@@ -2,8 +2,9 @@
   "name": "abnacn-validator",
   "version": "0.0.1",
   "description": "",
-  "main": ".dist/abnacn-validate.js",
+  "main": ".dist/abnacn-validator.js",
   "scripts": {
+    "build": "./node_modules/.bin/babel ./src/abnacn.js -o dist/abnacn-validator.js",
     "test": "./node_modules/.bin/mocha ./tests"
   },
   "keywords": [
