@@ -15,8 +15,8 @@ The modules exposes three different functions: isValidABN, isValidACN and isVali
 
 ###Importing in ES6 syntax:
 
-    impo
-    rt {isValidABN, isValidACN, isValidABNorACN} from "abnacn-validator";  // Just import the ones you need.  No default export.
+    // Just import the functions you need.  There's no default export.
+    import {isValidABN, isValidACN, isValidABNorACN} from "abnacn-validator";
 
 
     isValidABN("53 004 085 616"); // -> true
@@ -46,7 +46,7 @@ The modules exposes three different functions: isValidABN, isValidACN and isVali
 ###AMD/RequireJS Syntax
 For the masochists among you...  ;-)
 
-I built it as a UMD module, using Babel's babel-plugin-transform-es2015-modules-umd plugin. So in theory, it should work with the AMD/RequireJS syntax too.  But this is untested, so suck it and see.
+I built this as a UMD module, using Babel's babel-plugin-transform-es2015-modules-umd plugin. So in theory, it should work with the AMD/RequireJS syntax too.  But this is untested, so suck it and see.
 
 
 ###Script tag
@@ -56,12 +56,18 @@ And finally, the humble script tag:
 
 
 ##Development
-Edit source file in the /src folder, then run `npm run build` to build it to the dist folder.  Babel will transform from ES6 to CommonJS format, and will also export in UMD format.
+Edit source file in the /src folder, then run:
 
-`npm test` to run the test suite.
+    npm run build
+
+to build it to the dist folder.  Babel will transform from ES6 to CommonJS format, and will also export in UMD format, courtesy of its [babel-plugin-transform-es2015-modules-umd plugin](https://babeljs.io/docs/plugins/transform-es2015-modules-umd/).
+
+To run the test suite.
+
+    npm test
 
 
 ##Acknowlegements
-ABN validation code taken from [SomeoneWeird's abn-validator module](https://github.com/SomeoneWeird/abn-validator).  I lifted some of his tests too.  In fact, if all you want is ABN validation, you may as well install that module (`npm install abn-validator`) rather than this one.
+ABN validation code taken from [SomeoneWeird's abn-validator module](https://github.com/SomeoneWeird/abn-validator).  I lifted and adapted some of his tests too.  In fact, if all you want is ABN validation, you may as well install that module (`npm install abn-validator`) rather than this one.
 
-ACN validation code taken from Worldspawn's post [this Whirlpool forum thread](http://forums.whirlpool.net.au/archive/984775).
+ACN validation code taken from Worldspawn's post on [this Whirlpool forum thread](http://forums.whirlpool.net.au/archive/984775).
