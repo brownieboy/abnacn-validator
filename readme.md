@@ -17,8 +17,7 @@ The modules exposes three different functions: isValidABN, isValidACN and isVali
 
     // Just import the functions you need.  There's no default export.
     import {isValidABN, isValidACN, isValidABNorACN} from "abnacn-validator";
-
-
+    
     isValidABN("53 004 085 616"); // -> true
     isValidABN("0"); // -> false
     isValidACN("005 749 986"); // -> true
@@ -56,7 +55,12 @@ And finally, the humble script tag:
 
 
 ##Development
-Edit source file in the /src folder, then run:
+As usual, after cloning the repository, install the required packages like so:
+
+    cd abnacn-validator
+    npm install
+
+Edit the one source file in the /src folder, then run:
 
     npm run build
 
