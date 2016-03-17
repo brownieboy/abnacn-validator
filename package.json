@@ -1,6 +1,6 @@
 {
     "name": "abnacn-validator",
-    "version": "0.0.4",
+    "version": "0.0.5",
     "description": "Validates Australian Business Numbers (ABNs) or Australian Company Numbers (ACNs) or a combination of both.",
     "main": "dist/abnacn-validator.js",
     "repository": {

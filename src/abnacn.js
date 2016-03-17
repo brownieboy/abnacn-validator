@@ -1,30 +1,5 @@
-// Taken from https://github.com/SomeoneWeird/abn-validator
-// export function isValidABN(abn) {
-//     var WEIGHTS = [10, 1, 3, 5, 7, 9, 11, 13, 15, 17, 19];
-//     var MAGICNUM = 89;
-
-//     if (typeof abn === 'string') {
-//         abn = abn.replace(/\s/g, '').replace(/-/g, '').split('');
-//     }
-
-//     if (abn.length != 11) {
-//         return false;
-//     }
-
-//     abn = abn.map(function(val, index) {
-//         return val * WEIGHTS[index];
-//     }).reduce(function(p, w) {
-//         return p + w;
-//     }, 0);
-
-//     var div = abn % MAGICNUM;
-
-//     return !!div;
-
-// }
-
-// taken from Truffala's formula at http://stackoverflow.com/questions/14174738/regex-to-match-australian-business-number-abn
-// verify via http://www.clearwater.com.au/code
+// Taken from Truffala's formula at:
+// http://stackoverflow.com/questions/14174738/regex-to-match-australian-business-number-abn
 export function isValidABN(str) {
     str = str.replace(/[ _]/g, '');
 

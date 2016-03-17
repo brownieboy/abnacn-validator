@@ -17,7 +17,7 @@ The modules exposes three different functions: isValidABN, isValidACN and isVali
 
     // Just import the functions you need.  There's no default export.
     import {isValidABN, isValidACN, isValidABNorACN} from "abnacn-validator";
-    
+
     isValidABN("53 004 085 616"); // -> true
     isValidABN("0"); // -> false
     isValidACN("005 749 986"); // -> true
@@ -31,7 +31,7 @@ The modules exposes three different functions: isValidABN, isValidACN and isVali
 ###Requiring in CommonJS (Node) syntax:
 
     var abnAcnValidatorObj = require("abnacn-validator");
-    
+
     abnAcnValidatorObj.isValidABN("53 004 085 616"); // -> true
     abnAcnValidatorObj.isValidABN("0"); // -> false
     abnAcnValidatorObj.isValidACN("005 749 986"); // -> true
@@ -70,8 +70,16 @@ To run the test suite.
 
     npm test
 
+Increased number of test cases for version 0.0.5.  Each valid and invalid ABN was verified at http://www.clearwater.com.au/code before being included in the test cases.  Test now also prints each ABN and ACN invidually, so you can see which ones are valid and which are not.  Test cases now include varations with and without spaces.
+
 
 ##Acknowlegements
-ABN validation code taken from [SomeoneWeird's abn-validator module](https://github.com/SomeoneWeird/abn-validator).  I lifted and adapted some of his tests too.  In fact, if all you want is ABN validation, you may as well install that module (`npm install abn-validator`) rather than this one.
+As of version 0.0.5, the ABN validation code is taken from Truffala's formula at:
+http://stackoverflow.com/questions/14174738/regex-to-match-australian-business-number-abn
+
+His code was adapated from the PHP code at http://www.clearwater.com.au/code.
+
+This replaces previous bugged code that was validating invalid ABNs.
+
 
 ACN validation code taken from Worldspawn's post on [this Whirlpool forum thread](http://forums.whirlpool.net.au/archive/984775).
