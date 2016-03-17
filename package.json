@@ -11,6 +11,7 @@
     "scripts": {
         "build": "./node_modules/.bin/babel ./src/abnacn.js -o dist/abnacn-validator.js",
         "test": "./node_modules/.bin/mocha ./tests",
+        "buildAndTest": "npm run build && npm run test",
         "prepublish": "npm run build"
     },
     "keywords": [

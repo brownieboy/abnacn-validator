@@ -3,11 +3,13 @@ var expect = chai.expect;
 
 var validatorObj = require("../dist/abnacn-validator.js");
 
-var abns = ['83 914 571 673'];
+// Use http://www.clearwater.com.au/code to check valid ABN.  Lookup
+// existing ABNs at http://abr.business.gov.au/
+var abns = ['83 914 571 673', '96 001 217 847', '21 000 006 226', '15 000 122 850', '52 097 227 177'];
 var acns = ['000 000 019', '000 250 000', '000 500 005', '000 750 005'];
 var abnsAndAcns = abns.concat(acns);
 var acnsAndAbns = acns.concat(abns);
-var invalidAbns = ['', '0', '00 000 000 000', '83 914 571 672'];
+var invalidAbns = ['', '0', '00 000 000 000', '83 914 571 672', '52 097 227 178', '21 000 006 227'];
 var invalidAcns = ['', '0', '00 000 000 000'];
 var invalidAbnsOrAcns = ['', '0', '00 000 000 000'];
 

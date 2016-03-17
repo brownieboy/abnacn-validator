@@ -20,30 +20,54 @@
     exports.isValidACN = isValidACN;
     exports.isValidABNorACN = isValidABNorACN;
     // Taken from https://github.com/SomeoneWeird/abn-validator
-    function isValidABN(abn) {
-        var WEIGHTS = [10, 1, 3, 5, 7, 9, 11, 13, 15, 17, 19];
-        var MAGICNUM = 89;
+    // export function isValidABN(abn) {
+    //     var WEIGHTS = [10, 1, 3, 5, 7, 9, 11, 13, 15, 17, 19];
+    //     var MAGICNUM = 89;
 
-        if (typeof abn === 'string') {
-            abn = abn.replace(/\s/g, '').replace(/-/g, '').split('');
+    //     if (typeof abn === 'string') {
+    //         abn = abn.replace(/\s/g, '').replace(/-/g, '').split('');
+    //     }
+
+    //     if (abn.length != 11) {
+    //         return false;
+    //     }
+
+    //     abn = abn.map(function(val, index) {
+    //         return val * WEIGHTS[index];
+    //     }).reduce(function(p, w) {
+    //         return p + w;
+    //     }, 0);
+
+    //     var div = abn % MAGICNUM;
+
+    //     return !!div;
+
+    // }
+
+    // taken from Truffala's formula at http://stackoverflow.com/questions/14174738/regex-to-match-australian-business-number-abn
+    // verify via http://www.clearwater.com.au/code
+    function isValidABN(str) {
+        str = str.replace(/[ _]/g, '');
+
+        if (!str || str.length !== 11) {
+            return false;
         }
+        var weights = [10, 1, 3, 5, 7, 9, 11, 13, 15, 17, 19],
+            checksum = str.split('').map(Number).reduce(function (total, digit, index) {
+            if (!index) {
+                digit--;
+            }
+            return total + digit * weights[index];
+        }, 0);
 
-        if (abn.length != 11) {
+        if (!checksum || checksum % 89 !== 0) {
             return false;
         }
 
-        abn = abn.map(function (val, index) {
-            return val * WEIGHTS[index];
-        }).reduce(function (p, w) {
-            return p + w;
-        }, 0);
-
-        var div = abn % MAGICNUM;
-
-        return !!div;
+        return true;
     }
 
-    // Taken from http://forums.whirlpool.net.au/archive/984775
+    // Taken from Worldspawn's post on http://forums.whirlpool.net.au/archive/984775
     function isValidACN(acn) {
         // Strip off white space
         if (typeof acn === 'string') {
