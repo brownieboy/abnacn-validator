@@ -3,11 +3,11 @@ var expect = chai.expect;
 
 var validatorObj = require("../dist/abnacn-validator.js");
 
-var abns = ['53 004 085 616', '00 000 000 001'];
+var abns = ['83 914 571 673'];
 var acns = ['000 000 019', '000 250 000', '000 500 005', '000 750 005'];
 var abnsAndAcns = abns.concat(acns);
 var acnsAndAbns = acns.concat(abns);
-var invalidAbns = ['', '0', '00 000 000 000'];
+var invalidAbns = ['', '0', '00 000 000 000', '83 914 571 672'];
 var invalidAcns = ['', '0', '00 000 000 000'];
 var invalidAbnsOrAcns = ['', '0', '00 000 000 000'];
 
