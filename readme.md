@@ -1,19 +1,19 @@
-#abnacn-validator
+# abnacn-validator
 
 Validates Australian Business Numbers (ABNs) or Australian Company Numbers (ACNs) or a combination of both.
 
-##Installation
+## Installation
 Install from npm, like so:
 
     npm install abnacn-validator --save
 
 
 
-##Usage
+## Usage
 The modules exposes three different functions: isValidABN, isValidACN and isValidABNorACN.  The latter will return true if the number is either a valid ABN or a valid ACN.
 
 
-###Importing in ES6 syntax:
+### Importing in ES6 syntax:
 
     // Just import the functions you need.  There's no default export.
     import {isValidABN, isValidACN, isValidABNorACN} from "abnacn-validator";
@@ -28,7 +28,7 @@ The modules exposes three different functions: isValidABN, isValidACN and isVali
 
 
 
-###Requiring in CommonJS (Node) syntax:
+### Requiring in CommonJS (Node) syntax:
 
     var abnAcnValidatorObj = require("abnacn-validator");
 
@@ -42,19 +42,19 @@ The modules exposes three different functions: isValidABN, isValidACN and isVali
 
 
 
-###AMD/RequireJS Syntax
+### AMD/RequireJS Syntax
 For the masochists among you...  ;-)
 
 I built this as a UMD module, using Babel's babel-plugin-transform-es2015-modules-umd plugin. So in theory, it should work with the AMD/RequireJS syntax too.  But this is untested, so suck it and see.
 
 
-###Script tag
+### Script tag
 And finally, the humble script tag:
 
     <script src="abnacn-validator.js"></script>
 
 
-##Development
+## Development
 As usual, after cloning the repository, install the required packages like so:
 
     cd abnacn-validator
@@ -73,7 +73,7 @@ To run the test suite.
 Increased number of test cases for version 0.0.5.  Each valid and invalid ABN was verified at http://www.clearwater.com.au/code before being included in the test cases.  Test now also prints each ABN and ACN individually, so you can see which ones are valid and which are not.  Test cases now include variations with and without spaces.
 
 
-##Acknowlegements
+## Acknowlegements
 As of version 0.0.5, the ABN validation code is taken from Truffala's formula at:
 http://stackoverflow.com/questions/14174738/regex-to-match-australian-business-number-abn
 
